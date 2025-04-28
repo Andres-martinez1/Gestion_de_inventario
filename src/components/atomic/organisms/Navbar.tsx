@@ -79,16 +79,7 @@ const NavbarApp = ({
       </NavbarBrand>
 
       <NavbarContent className="hidden sm:flex flex-1" justify="center">
-        <Input
-          classNames={{
-            base: "w-full max-w-md rounded-lg",
-            input: "text-white",
-            inputWrapper: "bg-[#a7a7a7] border border-[#334155] text-white",
-          }}
-          placeholder="Buscar..."
-          size="sm"
-          type="search"
-        />
+      
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4 items-center" justify="end">

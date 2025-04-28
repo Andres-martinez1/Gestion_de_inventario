@@ -48,7 +48,7 @@ const warehouses = [
 
 // Mapa de rutas personalizado por título
 const routeMap: Record<string, string> = {
-  TIC: routes.warehousesDetail,
+  TIC: routes.WarehouseDetail,
   Gastronomía: routes.admingastronomy,
   Agropecuaria: routes.adminagro,
   "Escuela Nacional del Café": routes.admincoffe,
@@ -60,7 +60,7 @@ const AdminWhereHousePage = () => {
   return (
     <div className="w-full px-4 py-6">
       <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-center">
-        Sistema de Gestión de Bodegas
+        Sistema de Gestión 
       </h1>
       <p className="text-center text-sm text-gray-500 mb-6">
         Gestión y control de las diferentes áreas de almacenamiento

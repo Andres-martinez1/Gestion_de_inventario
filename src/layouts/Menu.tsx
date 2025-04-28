@@ -6,8 +6,7 @@ import {
   BuildingStorefrontIcon,
   Cog6ToothIcon,
   QuestionMarkCircleIcon,
-  UserCircleIcon
-  
+  UserCircleIcon,
 } from "@heroicons/react/16/solid";
 import { MenuItem } from "../components/atomic/atoms/MenuItem";
 import { routes } from "../routes/Routes";
@@ -20,9 +19,10 @@ export const adminMenu: MenuItem[] = [
     icon: <UsersIcon className="h-6 w-6 text-white-500" />,
     subItems: [
       { code: "Agregar Usuario", title: " Usuario", path: routes.users },
-    ]
+    ],
   },
-  { code: "reports",
+  {
+    code: "reports",
     title: "Reportes",
     path: "#",
     icon: <DocumentChartBarIcon className="w-5 h-5" />,
@@ -30,9 +30,11 @@ export const adminMenu: MenuItem[] = [
       { code: "entrada", title: "Entrada", path: routes.entrada },
       { code: "salida", title: "Salida", path: routes.salida },
       { code: "inventario", title: "Inventario", path: routes.inventario },
-      { code: "trazabilidad", title: "Trazabilidad", path: routes.trazabilidad },
-      { code: "vencimientos", title: "Vencimientos", path: routes.vencimientos },
-
+      {
+        code: "trazabilidad",
+        title: "Trazabilidad",
+        path: routes.trazabilidad,
+      },
     ],
   },
   {
@@ -43,11 +45,19 @@ export const adminMenu: MenuItem[] = [
   },
   {
     code: "WAREHOUSES",
-    title: "Bodegas",
-    path: routes.warehouses,
+    title: "Inventario",
+    path: routes.Warehouse,
     icon: <BuildingStorefrontIcon className="h-6 w-6 text-white-500" />,
     subItems: [
-      { code: "Categorias", title: " Categorias", path: routes.warehouses }
+      { code: "inventario", title: "Inventario", path: routes.inventory },
+  
+      { code: "Categorias", title: " Categorias", path: routes.Warehouse },
+      {
+        code: "vencimientos",
+        title: "Vencimientos",
+        path: routes.vencimientos,
+      },
+      { code: "Historial de movimientos", title: "Historial de movimientos", path: routes.History },
     ],
   },
   {
@@ -56,14 +66,14 @@ export const adminMenu: MenuItem[] = [
     path: routes.stats,
     icon: <ChartBarIcon className="h-6 w-6 text-white-500" />,
     subItems: [
-      { code: "entrada", title: "Entrada", path: routes.StaticE},
-      { code: "salida", title: "Salida", path: routes.StacticS},
-      { code: "inventario", title: "Inventario", path: routes.StacticI},
-      { code: "trazabilidad", title: "Trazabilidad", path: routes.StacticT},
-      { code: "vencimientos", title: "Vencimientos", path: routes.StacticV},
+      { code: "entrada", title: "Entrada", path: routes.StaticE },
+      { code: "salida", title: "Salida", path: routes.StacticS },
+      { code: "inventario", title: "Inventario", path: routes.StacticI },
+      { code: "trazabilidad", title: "Trazabilidad", path: routes.StacticT },
+      { code: "vencimientos", title: "Vencimientos", path: routes.StacticV },
     ],
   },
- 
+
   {
     code: "CONFIGURATION",
     title: "Configuración",

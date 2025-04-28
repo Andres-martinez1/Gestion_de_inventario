@@ -10,7 +10,7 @@ const UsersPage = () => {
   const dialogRef = useRef<{ onOpen: () => void; onClose: () => void }>(null);
 
   return (
-    <>
+    <div className="p-8"> 
       <Button
         onPress={() => dialogRef?.current?.onOpen()}
         color="primary"
@@ -19,23 +19,28 @@ const UsersPage = () => {
       >
         Agregar Nuevo
       </Button>
+
       <Dialog
         ref={dialogRef}
-        title={action== Action.ADD ? "Agregar Usuario":'Editar Usuario'}
+        title={action === Action.ADD ? "Agregar Usuario" : "Editar Usuario"}
         content={
           <UsersForm
             actionType={action}
             onSave={() => {
               dialogRef?.current?.onClose();
             }}
-          ></UsersForm>
+          />
         }
       />
-      <UsersList onEdit={()=> {
-        setAction(Action.EDIT)
-        dialogRef?.current?.onOpen()
-      }} />
-    </>
+
+      <UsersList
+        onEdit={() => {
+          setAction(Action.EDIT);
+          dialogRef?.current?.onOpen();
+        }}
+      />
+    </div>
   );
 };
+
 export default UsersPage;

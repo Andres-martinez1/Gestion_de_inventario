@@ -25,6 +25,8 @@ import AdminReportsI from "../pages/admin/AdminReportsI";
 import AdminReportsT from "../pages/admin/AdminReportsT";
 import AdminReportsV from "../pages/admin/AdminReportsV";
 import AdminDetalleEntrada from "../pages/admin/AdminDetalleEntrada";
+import MovementHistoryPage from "../pages/admin/HistoryPage";
+import InventoryPage from "../pages/admin/InventoryPage";
 
 const AppRoutes = () => {
   const { isAuthenticated } = useAuth();
@@ -159,6 +161,15 @@ const AppRoutes = () => {
           }
         />
         <Route
+          path={routes.inventory}
+          element={
+            <ProtectedRoute
+              component={InventoryPage}
+              isAuthenticated={isAuthenticated}
+            />
+          }
+        />
+        <Route
           path={routes.vencimientos}
           element={
             <ProtectedRoute
@@ -168,7 +179,7 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path={routes.warehouses}
+          path={routes.Warehouse}
           element={
             <ProtectedRoute
               component={AdminWhereHousePage}
@@ -177,7 +188,16 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path={routes.warehousesDetail}
+          path={routes.History}
+          element={
+            <ProtectedRoute
+              component={MovementHistoryPage}
+              isAuthenticated={isAuthenticated}
+            />
+          }
+        />
+        <Route
+          path={routes.WarehouseDetail}
           element={
             <ProtectedRoute
               component={AdminWhereHouseDetailPage}

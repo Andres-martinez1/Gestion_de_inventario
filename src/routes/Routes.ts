@@ -1,3 +1,5 @@
+import { Warehouse } from "lucide-react";
+
 export const routes = {
   home: "/",
   stats: "/admin/estadisticas",
@@ -15,12 +17,14 @@ export const routes = {
   products: "/admin/productos",
   detalles:"/admin/detalles",
   users: "/admin/usuarios",
+  History: "/admin/history",
+  inventory: "/admin/inventory",
   admingastronomy: "/admin/bodegas/admingastronomy",
   adminagro: "/admin/bodegas/adminagro",
   admincoffe: "/admin/bodegas/admincoffe",
-  warehouses: "/admin/bodegas",
+  Warehouse: "/admin/bodegas",
   configuration: "/admin/configuracion",
-  warehousesDetail: "/admin/bodegas/:id",
+  WarehouseDetail: "/admin/bodegas/:id",
   help: "/admin/ayuda",
   profile: "/admin/perfil",
   logout: "/admin/cerrar-sesion",
