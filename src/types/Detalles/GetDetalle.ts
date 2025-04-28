@@ -1,4 +1,4 @@
-export interface Detalle {
+export type GetDetalle = {
   id: number;
   movimiento: string;
   elemento: string;

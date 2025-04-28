@@ -1,4 +1,4 @@
-export interface Bodega {
+export type GetBodega = {
     id_bodega: number;        
     encargado: string;       
     sede: string;             

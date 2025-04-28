@@ -1,5 +1,6 @@
-export interface Elemento {
-  id_elemento: number;
+import { api } from "../../lib/axios";
+
+export interface ElementoPostData {
   nombre_elemento: string;
   bodega: string;
   stock: number;
@@ -11,4 +12,9 @@ export interface Elemento {
   fk_id_bodega: number;
   fecha_ultimo_movimiento: string;
   estado_material: string;
+}
+
+export async function postElemento(data: ElementoPostData) {
+  const response = await api.post("/elementos", data);
+  return response.data;
 }
