@@ -3,27 +3,57 @@ import { Bodega } from '../../types/Bodega';
 
 const ENDPOINT = '/bodega';
 
+// Obtener todas las bodegas
 export const fetchBodegas = async (): Promise<Bodega[]> => {
-  const { data } = await axiosInstance.get<Bodega[]>(ENDPOINT);
-  return data;
+  try {
+    const { data } = await axiosInstance.get<Bodega[]>(ENDPOINT);
+    return data;
+  } catch (error) {
+    console.error('Error al obtener las bodegas:', error);
+    throw error; // Re-throw el error para ser gestionado por el consumidor
+  }
 };
 
+// Obtener una bodega por ID
 export const fetchBodegaById = async (id: number): Promise<Bodega> => {
-  const { data } = await axiosInstance.get<Bodega>(`${ENDPOINT}/${id}`);
-  return data;
+  try {
+    const { data } = await axiosInstance.get<Bodega>(`${ENDPOINT}/${id}`);
+    return data;
+  } catch (error) {
+    console.error(`Error al obtener la bodega con ID ${id}:`, error);
+    throw error; // Re-throw el error para ser gestionado por el consumidor
+  }
 };
 
+// Crear una nueva bodega
 export const createBodega = async (newBodega: Omit<Bodega, 'id_bodega'>): Promise<Bodega> => {
-  const { data } = await axiosInstance.post<Bodega>(ENDPOINT, newBodega);
-  return data;
+  try {
+    const { data } = await axiosInstance.post<Bodega>(ENDPOINT, newBodega);
+    return data;
+  } catch (error) {
+    console.error('Error al crear la bodega:', error);
+    throw error; // Re-throw el error para ser gestionado por el consumidor
+  }
 };
 
+// Actualizar una bodega
 export const updateBodega = async (updatedBodega: Bodega): Promise<Bodega> => {
-  const { id_bodega, ...bodegaData } = updatedBodega;
-  const { data } = await axiosInstance.put<Bodega>(`${ENDPOINT}/${id_bodega}`, bodegaData);
-  return data;
+  try {
+    const { id_bodega, ...bodegaData } = updatedBodega;
+    const { data } = await axiosInstance.put<Bodega>(`${ENDPOINT}/${id_bodega}`, bodegaData);
+    return data;
+  } catch (error) {
+    console.error(`Error al actualizar la bodega con ID ${updatedBodega.id_bodega}:`, error);
+    throw error; // Re-throw el error para ser gestionado por el consumidor
+  }
 };
 
+// Eliminar una bodega
 export const deleteBodega = async (id: number): Promise<void> => {
-  await axiosInstance.delete(`${ENDPOINT}/${id}`);
+  try {
+    await axiosInstance.delete(`${ENDPOINT}/${id}`);
+  } catch (error) {
+    console.error(`Error al eliminar la bodega con ID ${id}:`, error);
+    throw error; // Re-throw el error para ser gestionado por el consumidor
+  }
 };
