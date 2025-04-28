@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth, useLogin } from "../../hooks/use-auth";
 import { AuthLogin } from "../../models/auth";
 import { User } from "../../models/user";
+import { loginSchema } from "../../schemas/login.schema";
 
 const LoginForm = () => {
   const [action, setAction] = useState("");
@@ -37,8 +38,16 @@ const LoginForm = () => {
             e.preventDefault();
             const formData = new FormData(e.currentTarget);
             const data = Object.fromEntries(formData.entries());
+          
+            const parsed = loginSchema.safeParse(data);
+          
+            if (!parsed.success) {
+              alert(parsed.error.issues.map(issue => issue.message).join("\n"));
+              return;
+            }
+          
             onLogin(
-              new AuthLogin(data.email as string, data.password as string)
+              new AuthLogin(parsed.data.email, parsed.data.password)
             );
           }}
         >
