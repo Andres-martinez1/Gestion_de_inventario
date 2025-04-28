@@ -1,5 +1,3 @@
-import { Warehouse } from "lucide-react";
-
 export const routes = {
   home: "/",
   stats: "/admin/estadisticas",
