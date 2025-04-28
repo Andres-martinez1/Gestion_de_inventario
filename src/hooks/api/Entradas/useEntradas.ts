@@ -1,5 +1,5 @@
 import axiosInstance from '../../lib/axios';
-import { Entrada } from '../../types/Entrada';
+import { Entrada } from '../../types/Entradas/Entrada';
 
 const ENDPOINT = '/entradas';
 

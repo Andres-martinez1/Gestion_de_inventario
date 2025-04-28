@@ -1,5 +1,5 @@
 import axiosInstance from '../../lib/axios';
-import { NoDevolutivo } from '../../types/NoDevolutivo';
+import { NoDevolutivo } from '../../types/NoDevolutivo/NoDevolutivo';
 
 const ENDPOINT = '/no_devolutivo';
 

@@ -1,5 +1,5 @@
 import axiosInstance from '../../lib/axios';
-import { Movimiento } from '../../types/Movimiento';
+import { Movimiento } from '../../types/Movimientos/Movimiento';
 
 const ENDPOINT = '/movimientos';
 

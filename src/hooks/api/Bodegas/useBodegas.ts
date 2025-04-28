@@ -1,5 +1,5 @@
 import axiosInstance from '../../lib/axios';
-import { Bodega } from '../../types/Bodega';
+import { Bodega } from '../../types/Bodegas/Bodega';
 
 const ENDPOINT = '/bodega';
 

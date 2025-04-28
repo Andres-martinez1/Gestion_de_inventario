@@ -1,5 +1,5 @@
 import axiosInstance from '../../lib/axios';
-import { Municipio } from '../../types/Municipio';
+import { Municipio } from '../../types/Municipios/Municipio';
 
 const ENDPOINT = '/municipios';
 

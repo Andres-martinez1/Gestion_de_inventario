@@ -1,5 +1,5 @@
 import axiosInstance from '../../lib/axios';
-import { Trazabilidad } from '../../types/Trazabilidad';
+import { Trazabilidad } from '../../types/Trazabilidad/Trazabilidad';
 
 const ENDPOINT = '/trazabilidad';
 
