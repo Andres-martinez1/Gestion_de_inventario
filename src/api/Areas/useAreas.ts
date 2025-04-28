@@ -1,5 +1,5 @@
-import axiosInstance from '../../../lib/axios';
-import { Area } from '../../../types/Areas/Area';
+import axiosInstance from '../../lib/axios';
+import { Area } from '../../types/Areas/Area';
 
 const ENDPOINT = '/areas';
 
