@@ -28,7 +28,6 @@ const AdminProducts = ({ item }) => {
   };
 
 
-  // Productos similares a los de la imagen de referencia
   const products = [
     {
       id: 1,
@@ -247,7 +246,7 @@ const AdminProducts = ({ item }) => {
                 </span>
               </div>
 
-              <Button onClick={handleVerDetalles}>
+              <Button className="mt-4 bg-gray-900 hover:bg-gray-800 text-white w-60 h-11 rounded" onClick={handleVerDetalles}>
                 Ver Detalles
               </Button>
 
@@ -380,7 +379,7 @@ const AdminProducts = ({ item }) => {
               >
                 Cancelar
               </button>
-              <button className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm hover:shadow">
+              <button className="bg-gray-900 text-white rounded-lg text-sm hover:shadow">
                 Guardar Producto
               </button>
             </div>

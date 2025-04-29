@@ -92,7 +92,7 @@ const NavbarApp = ({
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4 items-center" justify="end">
-        <Link  className="text-white hover:text-gray-300" cursor-pointer onClick={() => navigate(routes.home)}>🏠 Inicio</Link>
+        <Link  className="text-white hover:text-gray-300 cursor-pointer" cursor-pointer onClick={() => navigate(routes.home)}>🏠 Inicio</Link>
 
         {/* Dropdown de Idioma */}
         <Dropdown>
