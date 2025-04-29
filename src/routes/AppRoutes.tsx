@@ -8,7 +8,7 @@ import AdminPage from "../pages/admin/AdminPage";
 import AdminStatsPage from "../pages/admin/AdminStatsPage";
 import AdminReports from "../pages/admin/AdminReports";
 import RedirectIfAuthenticated from "./RedirectIfAuthenticated";
-import { useAuth } from "../hooks/use-auth";
+import { useAuth } from "../hooks/Auth/use-auth";
 import { routes } from "./Routes";
 import AdminProfile from "../pages/admin/AdminProfile";
 import AdminProducts from "../pages/admin/AdminProducts";

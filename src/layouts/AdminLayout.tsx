@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import NavbarApp from "../components/atomic/organisms/Navbar";
 import Sidebar from "../components/atomic/organisms/Sidebar";
-import { useAuth } from "../hooks/use-auth";
+import { useAuth } from "../hooks/Auth/use-auth";
 import { adminMenu } from "./Menu";
 const AdminLayout = () => {
   const { isAuthenticated, user, onLogout } = useAuth();

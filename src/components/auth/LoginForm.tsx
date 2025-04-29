@@ -1,11 +1,11 @@
 import { Alert, Button, Card, CardBody, Form, Input } from "@heroui/react";
 import { useEffect, useState } from "react";
-import { useAuth, useLogin } from "../../hooks/use-auth";
+import { useAuth, useLogin } from "../../hooks/Auth/use-auth";
 import { AuthLogin } from "../../models/auth";
 import { User } from "../../models/user";
 
 const LoginForm = () => {
-  const [action, setAction] = useState("");
+  const [, setAction] = useState("");
   const [loginRequest, setLoginRequest] = useState<AuthLogin | null>(null);
   const { onLoginSuccess } = useAuth();
   const { isLoading, isSuccess, data, error } = useLogin(loginRequest);
