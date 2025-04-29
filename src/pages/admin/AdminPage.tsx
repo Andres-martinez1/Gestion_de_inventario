@@ -11,13 +11,14 @@ const AdminPage = () => {
 
   return (
     <>
-      <div className="mb-6">
-        <Carousel
-          images={images}
-          height="h-64 sm:h-80 md:h-96"
-          className="rounded-lg object-cover"
-        />
-      </div>
+     <div className="w-full mb-6">
+  <Carousel
+    images={images}
+    height="h-64 sm:h-80 md:h-100"
+    className="w-full rounded-lg object-cover"
+  />
+</div>
+
 
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
         Sistema de Gestión de Bodegas
@@ -27,7 +28,7 @@ const AdminPage = () => {
           title="Gestión de Inventario"
           description="Control completo sobre todos los productos en las bodegas"
           imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn5I0Pesez42pupncOliBweBHVSeZWkFGPwA&s"
-          link={routes.warehousesDetail}
+          link={routes.WarehouseDetail}
           textColor="text-blue-500"
           iconBgColor="bg-blue-100"
         />
@@ -51,7 +52,7 @@ const AdminPage = () => {
           title="Reportes"
           description="Informes detallados y análisis del sistema."
           imageUrl="https://static.vecteezy.com/system/resources/previews/029/184/802/non_2x/report-icon-symbol-design-illustration-vector.jpg"
-          link={routes.warehouses}
+          link={routes.Warehouse}
           textColor="text-red-600"
           iconBgColor="bg-red-100"
         />

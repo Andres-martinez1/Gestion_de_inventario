@@ -1,7 +1,10 @@
 import { Alert, Button } from "@heroui/react";
 import ContactCard from "../../components/admin/DetailWareHouse/ContactCard";
+import { GlobalReportModal } from "../../components/atomic/organisms/GlobalReportModal";
+import { useState } from "react";
 
 const AdminWhereHouseDetailPage = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-10">
      
@@ -39,13 +42,21 @@ const AdminWhereHouseDetailPage = () => {
         />
       </div>
       <section>
+      
         <h2 className="text-xl font-semibold mb-4">Contacto Responsable</h2>
         <ContactCard
+        
           name="Diego Calderon"
           role="Coordinador de TIC"
           email="diego.calderon@example.com"
           phone="+57 300 123 4567"
         />
+        <button className="border px-4 py-2 rounded-lg text-sm ">🖨️ Imprimir</button>
+          <button className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm" onClick={() => setModalOpen(true)}>
+            ⬇️ Exportar
+          </button>
+          
+                
       </section>
       <section>
         <h2 className="text-xl font-semibold mb-4">Resumen de Inventario</h2>

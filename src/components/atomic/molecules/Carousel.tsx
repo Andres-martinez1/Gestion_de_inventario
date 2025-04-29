@@ -26,7 +26,6 @@ const Carousel = ({
 
   return (
     <div className={`relative w-full mx-auto flex items-center justify-center ${className}`}>
-      {/* 🔹 Contenedor de la imagen */}
       <div className={`overflow-hidden relative ${height} w-full`}>
         {images.map((image, index) => (
           <div

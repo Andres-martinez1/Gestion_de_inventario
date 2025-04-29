@@ -49,14 +49,10 @@ export const adminMenu: MenuItem[] = [
     path: routes.Warehouse,
     icon: <BuildingStorefrontIcon className="h-6 w-6 text-white-500" />,
     subItems: [
-      { code: "inventario", title: "Inventario", path: routes.inventory },
-  
+      
       { code: "Categorias", title: " Categorias", path: routes.Warehouse },
-      {
-        code: "vencimientos",
-        title: "Vencimientos",
-        path: routes.vencimientos,
-      },
+      { code: "inventario", title: "Inventario", path: routes.inventory },
+      {code: "vencimientos",title: "Vencimientos",path: routes.vencimientos, },
       { code: "Historial de movimientos", title: "Historial de movimientos", path: routes.History },
     ],
   },

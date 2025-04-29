@@ -1,4 +1,4 @@
-import { Alert, Button } from "@heroui/react";
+import { Alert, Button, Image } from "@heroui/react";
 
 const AdminNotificationsPage = () => {
   return (
@@ -11,13 +11,16 @@ const AdminNotificationsPage = () => {
       <div className="my-6">
         <Alert
           color="warning"
-          description="La carne de cerdo en la bodega de gastronomia esta proxima a caducar"
-          endContent={
-            <Button color="warning" size="sm" variant="flat">
-              Ver detalle
-            </Button>
+          description="La carne de cerdo en la bodega de gastronomía está próxima a caducar"
+          title={
+            <div className="flex items-center gap-6">
+              <img
+                src="../../assets/images/tecnoparque.jpeg"
+                className="w-20 h-20"
+              />
+              Producto próximo a Caducar
+            </div>
           }
-          title="Producto proximo a Caducar"
           variant="faded"
         />
       </div>
@@ -25,13 +28,15 @@ const AdminNotificationsPage = () => {
       <div className="my-6">
         <Alert
           color="success"
-          title="Inventario Actualizado"
           description="El inventario de la bodega TIC ha sido actualizado exitosamente"
-          variant="flat"
-          endContent={
-            <Button color="success" size="sm" variant="flat">
-              Ver detalle
-            </Button>
+          title={
+            <div className="flex items-center gap-2">
+              <img
+                src="../../assets/images/tecnoparque.jpeg"
+                className="w-20 h-20"
+              />
+              Inventario Actualizado
+            </div>
           }
         />
       </div>

@@ -54,7 +54,6 @@ const LoginForm = () => {
           <h5 className="text-center w-full ">Iniciar Sesión</h5>
           <Input
             isRequired
-            errorMessage="Por favor ingrese un email válido"
             labelPlacement="outside"
             name="email"
             placeholder="Correo"
@@ -62,7 +61,6 @@ const LoginForm = () => {
           />
           <Input
             isRequired
-            errorMessage="Por favor ingrese una contraseña válida"
             labelPlacement="outside"
             name="password"
             placeholder="Ingrese su contraseña"
