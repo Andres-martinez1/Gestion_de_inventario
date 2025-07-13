@@ -1,4 +1,3 @@
-// context/auth-context.ts
 import { createContext, useState, useEffect, useContext } from 'react';
 import { User } from "../models/user";
 

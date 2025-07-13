@@ -8,9 +8,8 @@ import {
 } from "lucide-react";
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10 px-6 md:px-20 w-full">
+    <footer className="bg-gray-900 text-white py-10 px-6 md:px-20 w-full mt-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-        {" "}
         <div>
           <div className="flex items-center gap-2 mb-4">
             <div className="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center font-bold">

@@ -1,11 +1,15 @@
 export type GetSalida = {
-  id_salida: number;
-  fecha_salida: string;
-  fk_id_bodega: number;
-  fk_id_elemento: number;
-  cantidad_entregada: number;
-  area_destino: number;
-  programa_destino: string;
-  responsable_retiro: string;
-  motivo_salida: string;
-}
+  idSalida: number;
+  cantidadEntregada: number;
+  areaDestino: string | number;
+  fechaSalida: Date;
+  fkIdBodega: {
+    idBodega: number;
+    nombreBodega: string;
+    encargado: string;
+  };
+  fkIdElemento: {
+    idElemento: number;
+    nombreElemento: string;
+  };
+};

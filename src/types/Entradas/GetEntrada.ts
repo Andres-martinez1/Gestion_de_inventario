@@ -1,10 +1,25 @@
 export type GetEntrada = {
-  id_entrada: number;
-  fecha_ingreso: string;
-  fk_id_bodega: number;
-  fk_id_elemento: number;
-  cantidad_ingresada: number;
+  idEntrada: number;
+  cantidadIngresada: string;
   proveedor: string;
-  responsable: string;
-  documento_soporte: string;
-}
+  fechaIngreso: string;
+  fkIdBodega: {
+    idBodega: number;
+    nombreBodega: string;
+    encargado: string;
+  };
+  fkIdElemento: {
+    idElemento: number;
+    nombreElemento: string;
+    stock: number;
+    clasificacion: string;
+    fichaTecnica: string;
+    uso: string;
+    estado: string;
+    serial: string;
+    tipo: string;
+    fechaIngreso: string;
+    fechaSalida: string | null;
+    fechaCaducidad: string;
+  };
+};

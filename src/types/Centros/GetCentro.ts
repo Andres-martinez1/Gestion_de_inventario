@@ -1,5 +1,8 @@
-export type GetCentro  = {
-  id_centro: number;
-  nombre_centro: string;
-  fk_id_municipio: number;
+export interface GetCentro {
+  idCentro: number;
+  nombreCentro: string;
+  fkIdMunicipio: {
+    idMunicipio: number;
+    nombreMunicipio: string;
+  } | null;
 }

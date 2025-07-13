@@ -1,7 +1,7 @@
 import { api } from "../../lib/axios";
 
 export interface ProgramaPostData {
-  nombre: string;
+  nombrePrograma: string;
 }
 
 export async function postPrograma(data: ProgramaPostData) {

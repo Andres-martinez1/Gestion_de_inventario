@@ -26,7 +26,7 @@ const Dialog = forwardRef(({ title, content, size = "md" }: Readonly<DialogProps
   return (
     <Modal size={size} isOpen={isOpen} onOpenChange={onOpenChange}>
       <ModalContent>
-        {(close) => (
+        {(_close) => (
           <>
             <ModalHeader className="flex flex-col gap-1">
               {title}

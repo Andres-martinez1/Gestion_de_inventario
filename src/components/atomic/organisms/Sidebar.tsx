@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { MenuItem } from "../atoms/MenuItem";
-import { ChevronDown, ChevronUp} from "lucide-react";
+import { ChevronDown, ChevronUp, Menu, LogOut } from "lucide-react";
+import { routes } from "../../../routes/Routes";
 
 interface SidebarProps {
   menuItems: MenuItem[];
@@ -18,44 +19,48 @@ const Sidebar = ({ menuItems }: SidebarProps) => {
   }, [pathname]);
 
   const groupedMenu = {
-    PRINCIPAL: menuItems.slice(0, 6),
-    CONFIGURACIÓN: menuItems.slice(6, 9),
+    PRINCIPAL: menuItems.slice(0, 5),
+    CONFIGURACIÓN: menuItems.slice(5, 7),
   };
 
-  const toggleSidebar = () => setIsOpen(prev => !prev);
+  const toggleSidebar = () => setIsOpen((prev) => !prev);
 
   const handleClick = (path: string) => {
     setActivePath(path);
   };
 
   const toggleSubMenu = (code: string) => {
-    setExpandedMenus(prev => ({ ...prev, [code]: !prev[code] }));
+    setExpandedMenus((prev) => ({ ...prev, [code]: !prev[code] }));
   };
 
-  return (
-    <div
-      className={`h-100vh ${isOpen ? "w-64" : "w-16"} bg-gray-900 text-white transition-all duration-300 flex flex-col justify-between`}
-    >
-      {/* Header */}
-      <div>
-        <div className="flex items-center justify-between p-4">
-          {isOpen && <h1 className="text-xl font-bold">Menú</h1>}
-          <button onClick={toggleSidebar} className="text-white text-sm w-5 h-5">
-            {isOpen ? "<" : "☰"}
-          </button>
-        </div>
-        <hr className="mb-4 border-t border-white/10 mx-2" />
+  const logoutItem = menuItems.find((item) => item.code === "LOGOUT");
 
-        {/* Navegación */}
-        <nav className="flex flex-col gap-1">
-          {Object.entries(groupedMenu).map(([section, items]) => (
-            <div key={section}>
-              {isOpen && (
-                <p className="px-4 pt-4 pb-1 text-xs font-semibold text-gray-400 uppercase">
-                  {section}
-                </p>
-              )}
-              {items.map(({ code, path, title, icon, subItems }) => {
+  return (
+   <div className={`min-h-screen ${isOpen ? "w-64" : "w-16"} bg-[#151B2C] text-white flex flex-col shadow-lg border-r border-blue-100`}>
+
+      
+      {/* Header */}
+      <div className="flex items-center justify-between p-4 border-b border-white/10">
+        {!isOpen ? null : (
+          <div className="flex items-center space-x-2">
+            <h2 className="font-bold text-xl bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">Menú</h2>
+          </div>
+        )}
+        <button onClick={toggleSidebar} className="text-white hover:bg-[#3B82F6]/20 p-2 rounded-md">
+          <Menu size={20} />
+        </button>
+      </div>
+
+      {/* Menú */}
+      <div className="flex-1 overflow-y-auto py-2">
+        {Object.entries(groupedMenu).map(([section, items]) => (
+          <div key={section} className="mb-4">
+            {isOpen && (
+              <p className="px-4 pt-4 pb-1 text-xs font-semibold text-gray-400 uppercase">
+                {section}
+              </p>
+            )}
+            {items.map(({ code, path, title, icon, subItems }) => {
               const isActive = activePath === path;
               const isExpanded = expandedMenus[code] || false;
 
@@ -64,22 +69,30 @@ const Sidebar = ({ menuItems }: SidebarProps) => {
                   {subItems ? (
                     <button
                       onClick={() => toggleSubMenu(code)}
-                      className={`flex items-center justify-between px-4 py-2 mx-2 rounded-md transition-colors ${
-                        isActive ? "bg-[#0862f4]/15" : "hover:bg-[#0862f4]/15"
+                      className={`flex items-center justify-between px-4 py-2 mx-2 rounded-md font-medium transition-all ${
+                        isActive || isExpanded
+                          ? "bg-[#3B82F6]/30 text-white"
+                          : "hover:bg-[#3B82F6]/20 hover:text-blue-300 text-white"
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span>{icon}</span>
                         {isOpen && <span>{title}</span>}
                       </div>
-                      {isOpen && <span className="text-sm">{isExpanded ? <ChevronUp/> :<ChevronDown/>}</span>}
+                      {isOpen && (
+                        <span className="text-sm">
+                          {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                        </span>
+                      )}
                     </button>
                   ) : (
                     <Link
                       to={path}
                       onClick={() => handleClick(path)}
-                      className={`flex items-center gap-3 px-4 py-2 mx-2 rounded-md transition-colors ${
-                        isActive ? "bg-[#0862f4]/15" : "hover:bg-[#0862f4]/15"
+                      className={`flex items-center gap-3 px-4 py-2 mx-2 rounded-md font-medium transition-all ${
+                        isActive
+                          ? "bg-[#3B82F6]/30 text-white"
+                          : "hover:bg-[#3B82F6]/20 hover:text-blue-300 text-white"
                       }`}
                     >
                       <span>{icon}</span>
@@ -87,21 +100,22 @@ const Sidebar = ({ menuItems }: SidebarProps) => {
                     </Link>
                   )}
 
-                  {/* Submenú */}
+                  {/* SubItems */}
                   {subItems && isExpanded && (
-                    <div className="ml-8 flex flex-col">
+                    <div className="ml-8 flex flex-col mt-1">
                       {subItems.map((subItem) => (
                         <Link
                           key={subItem.code}
                           to={subItem.path}
                           onClick={() => handleClick(subItem.path)}
-                          className={`py-1 px-4 rounded-md text-sm ${
+                          className={`py-1 px-3 rounded-md text-sm my-1 transition-all ${
                             activePath === subItem.path
-                              ? "bg-[#0862f4]/20 text-white"
-                              : "text-gray-300 hover:bg-[#0862f4]/10"
-                          }`}
+                              ? "bg-[#3B82F6]/30 text-white"
+                              : "text-white hover:bg-[#3B82F6]/20 hover:text-blue-300"
+                          } flex items-center gap-2`}
                         >
-                          {subItem.title}
+                          {subItem.icon}
+                          {isOpen && subItem.title}
                         </Link>
                       ))}
                     </div>
@@ -109,17 +123,25 @@ const Sidebar = ({ menuItems }: SidebarProps) => {
                 </div>
               );
             })}
-            </div>
-          ))}
-        </nav>
+          </div>
+        ))}
       </div>
 
-      <hr className="mt-40 border-t border-white/10 mx-2" />
-      <div className="p-4">
-        <button className="w-full flex items-center gap-2 text-white text-sm hover:bg-[#1e293b] px-3 py-2 rounded-md">
-          ↩️ {isOpen && "Cerrar sesión"}
-        </button>
-      </div>
+      {/* Logout Footer */}
+      {logoutItem && (
+        <div className="border-t border-white/10 px-3 py-3">
+          <button
+            onClick={() => {
+              localStorage.clear();
+              window.location.href = routes.login;
+            }}
+            className="flex items-center px-3 py-2 text-white hover:text-red-400 hover:bg-red-100/10 transition-all duration-300 cursor-pointer w-full text-left rounded-lg font-medium"
+          >
+            <LogOut />
+            {isOpen && <span>Cerrar Sesión</span>}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,13 +1,11 @@
 import { api } from "../../lib/axios";
 
 export interface EntradaPutData {
-  fecha_ingreso: string;
-  fk_id_bodega: number;
-  fk_id_elemento: number;
-  cantidad_ingresada: number;
+  cantidadIngresada: number;
+  fechaIngreso: Date;
   proveedor: string;
-  responsable: string;
-  documento_soporte: string;
+  fkIdBodega: number;
+  fkIdElemento: number;
 }
 
 export async function updateEntrada(id: number, data: EntradaPutData) {

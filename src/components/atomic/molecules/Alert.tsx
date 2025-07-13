@@ -8,7 +8,7 @@ import {
     useDisclosure,
     forwardRef,
   } from "@heroui/react";
-  import { useImperativeHandle, useState } from "react";
+  import { useImperativeHandle } from "react";
   
   interface AlertProps {
     title: string;
@@ -43,7 +43,7 @@ import {
         onOpenChange={onOpenChange}
       >
         <ModalContent>
-          {(onClose) => (
+          {(_onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
               <ModalBody>

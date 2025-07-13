@@ -1,14 +1,32 @@
 export type GetElemento = {
-  id_elemento: number;
-  nombre_elemento: string;
-  bodega: string;
+  idElemento: number;
+  nombreElemento: string;
   stock: number;
   clasificacion: string;
-  ficha_tecnica: string;
+  fichaTecnica: string;
   uso: string;
+  tipo: string;
   estado: string;
   serial: string;
-  fk_id_bodega: number;
-  fecha_ultimo_movimiento: string;
-  estado_material: string;
-}
+  fechaCaducidad: Date;
+  fechaIngreso: Date;
+  fechaSalida: Date;
+
+  fkIdBodega: {
+    idBodega: number;
+    nombreBodega: string;
+    encargado: string;
+  };
+
+  entradas: {
+    proveedor: string;
+    cantidadIngresada: string;
+    fechaIngreso: string;
+  }[];
+
+  salidas: {
+    areaDestino: string;
+    cantidadEntregada: string;
+    fechaSalida: string;
+  }[];
+};

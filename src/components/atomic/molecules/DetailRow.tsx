@@ -1,4 +1,3 @@
-// components/molecules/DetailRow.tsx
 import { FC } from "react";
 
 interface Props {

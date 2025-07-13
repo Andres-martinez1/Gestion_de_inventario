@@ -1,9 +1,9 @@
 import { api } from "../../lib/axios";
 
 export interface BodegaPutData {
-  encargado: string;
-  sede: string;
-  fk_id_sede: number | null;
+    encargado: string;       
+    nombreBodega: string;             
+    fkIdSede: number; 
 }
 
 export async function updateBodega(id: number, data: BodegaPutData) {

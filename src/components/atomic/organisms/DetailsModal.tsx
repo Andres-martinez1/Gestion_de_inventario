@@ -1,4 +1,3 @@
-// components/organisms/DetailsModal.tsx
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -7,7 +6,7 @@ import DetailRow from "../molecules/DetailRow";
 interface Props {
   isOpen: boolean;
   onClose: () => void;
-  data: any; // reemplaza con tipo adecuado
+  data: any; 
 }
 
 const DetailsModal: React.FC<Props> = ({ isOpen, onClose, data }) => (

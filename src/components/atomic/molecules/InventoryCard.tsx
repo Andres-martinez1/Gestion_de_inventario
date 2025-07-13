@@ -4,7 +4,6 @@ import {
   CardBody,
   CardFooter,
   Divider,
-  Link,
   Image,
 } from "@heroui/react";
 
@@ -12,22 +11,21 @@ interface InventoryCardProps {
   title: string;
   description: string;
   imageUrl: string;
-  link: string;
+  onClick?: () => void;
   textColor?: string;
   iconBgColor?: string;
-  imageSizeClass?: string;
 }
 
 const InventoryCard = ({
   title,
   description,
   imageUrl,
-  link,
+  onClick,
   textColor = "text-gray-800",
   iconBgColor = "bg-gray-100",
 }: Readonly<InventoryCardProps>) => {
   return (
-    <Card className="w-full h-full shadow-md border border-gray-200 rounded-lg p-4 flex flex-col justify-between">
+    <Card className="mt-5 mr-2 h-full shadow-md border border-gray-200 rounded-lg p-4 flex flex-col justify-between ml-5">
       <CardHeader className="flex items-center gap-4">
         <div
           className={`w-16 h-16 rounded-full flex items-center justify-center ${iconBgColor}`}
@@ -54,14 +52,12 @@ const InventoryCard = ({
       <Divider />
 
       <CardFooter>
-        <Link
-          isExternal
-          showAnchorIcon
-          href={link}
-          className={`font-semibold ${textColor}`}
+        <button
+          onClick={onClick}
+          className={`font-semibold ${textColor} hover:underline transition`}
         >
-          Ver más
-        </Link>
+          Ver más →
+        </button>
       </CardFooter>
     </Card>
   );

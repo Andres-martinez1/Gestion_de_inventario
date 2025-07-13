@@ -1,9 +1,7 @@
 import { api } from "../../lib/axios";
 
 export interface AreaPostData {
-  nombre_area: string;
-  sede: string;
-  fk_id_sedes: number;
+  nombreArea: string;
 }
 
 export async function postArea(data: AreaPostData) {

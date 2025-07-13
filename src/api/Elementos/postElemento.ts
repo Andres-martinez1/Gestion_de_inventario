@@ -1,17 +1,18 @@
 import { api } from "../../lib/axios";
 
 export interface ElementoPostData {
-  nombre_elemento: string;
-  bodega: string;
+  nombreElemento: string;
   stock: number;
   clasificacion: string;
-  ficha_tecnica: string;
+  fichaTecnica: string;
   uso: string;
+  tipo: string;
   estado: string;
   serial: string;
-  fk_id_bodega: number;
-  fecha_ultimo_movimiento: string;
-  estado_material: string;
+  fechaCaducidad: Date;
+  fechaIngreso: Date;
+  fechaSalida: Date;
+  fkIdBodega: number;
 }
 
 export async function postElemento(data: ElementoPostData) {

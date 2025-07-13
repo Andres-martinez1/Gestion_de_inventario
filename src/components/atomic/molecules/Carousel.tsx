@@ -4,30 +4,29 @@ interface CarouselProps {
   images: string[];
   height?: string;
   className?: string;
-  interval?: number; // Tiempo en milisegundos entre cada cambio de imagen
+  interval?: number;
 }
 
 const Carousel = ({
   images,
-  height = "h-100",
+  height = "h-screen", 
   className = "",
-  interval = 3000, // 3 segundos por defecto
+  interval = 3000,
 }: Readonly<CarouselProps>) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // UseEffect para hacer que las imágenes cambien automáticamente
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, interval);
 
-    return () => clearInterval(slideInterval); //  Limpia el intervalo al desmontar
+    return () => clearInterval(slideInterval);
   }, [images.length, interval]);
 
   return (
-    <div className={`relative w-full mx-auto flex items-center justify-center ${className}`}>
-      {/* 🔹 Contenedor de la imagen */}
-      <div className={`overflow-hidden relative ${height} w-full`}>
+    <div className={`relative w-full flex items-center justify-center ${height} ${className}`}>
+      {/* Imagen actual */}
+      <div className={`overflow-hidden relative w-full h-full`}>
         {images.map((image, index) => (
           <div
             key={index}
@@ -35,12 +34,14 @@ const Carousel = ({
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           >
-            {/* 🔹 Asegura que la imagen se ajusta correctamente */}
-            <img src={image} alt={`Slide ${index}`} className="w-full h-full object-contain" />
+            <img
+              src={image}
+              alt={`Slide ${index}`}
+              className="w-full h-full object-cover" // Puedes usar "object-contain" si prefieres
+            />
           </div>
         ))}
       </div>
-   
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import { api } from "../../lib/axios";
 
 export interface CentroPostData {
-  nombre_centro: string;
-  fk_id_municipio: number;
+  nombreCentro: string;
+  fkIdMunicipio: number;
 }
 
 export async function postCentro(data: CentroPostData) {

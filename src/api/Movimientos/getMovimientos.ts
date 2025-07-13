@@ -3,5 +3,5 @@ import { GetMovimiento } from "../../types/Movimientos/GetMovimiento";
 
 export const getMovimientos = async (): Promise<GetMovimiento[]> => {
   const response = await api.get("/movimientos");
-  return response.data;
+  return response.data.data;
 };

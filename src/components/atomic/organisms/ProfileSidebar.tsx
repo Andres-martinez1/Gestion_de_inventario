@@ -3,7 +3,7 @@ import { ContactCard } from "../molecules/ContactCard"
 
 export const ProfileSidebar = () => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 ">
       {/* Avatar */}
       <div className="bg-blackwhite text-white rounded-2xl overflow-hidden shadow-md">
         <div className="h-24 bg-black" />
@@ -23,9 +23,9 @@ export const ProfileSidebar = () => {
       <ContactCard email={"andres@gmail.com"} location={"Bogotá, Colombia"} dateJoined={"Junio 2023"} department={"Formación TIC"} />
 
       {/* Habilidades Técnicas */}
-      <div className="bg-white p-4 rounded-2xl shadow-md border">
-        <h3 className="font-semibold text-sm mb-2 flex items-center text-black-600">👨‍💻 Habilidades Técnicas</h3>
-        <div className="flex flex-wrap gap-2">
+      <div className="bg-white p-4 rounded-2xl shadow-md border ml-[820px] w-[414px] translate-y-[-205px]">
+        <h3 className="font-semibold  mb-2 flex items-center text-black-600 mb-5">👨‍💻 Habilidades Técnicas</h3>
+        <div className="flex flex-wrap gap-3 mb-[65px]">
           <Badge label="Redes de computadoras" />
           <Badge label="Programación en Python" />
           <Badge label="Bases de datos" />

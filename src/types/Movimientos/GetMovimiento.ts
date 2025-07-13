@@ -1,10 +1,15 @@
-export type GetMovimiento = {
-  id_movimiento: number;
-  elemento: string;
-  fecha: string;
+import { GetUsuario } from "../Usuarios/GetUsuario";
+
+export interface GetMovimiento {
+  idMovimientos: number;
+  fecha: Date;
   responsable: string;
   pedir: string;
   suministrar: string;
   devolver: string;
-  fk_id_usuario: number;
+  fkIdElemento: {
+    idElemento: number;
+    nombreElemento: string;
+  };
+  fkIdUsuario: GetUsuario;
 }

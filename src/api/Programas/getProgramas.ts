@@ -3,5 +3,5 @@ import { GetPrograma } from "../../types/Programas/GetPrograma";
 
 export const getPrograma = async (): Promise<GetPrograma[]> => {
   const response = await api.get("/programas");
-  return response.data;
+  return response.data.data;
 };

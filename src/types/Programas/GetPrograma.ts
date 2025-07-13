@@ -1,4 +1,4 @@
 export type GetPrograma = {
-  id_programa: number;
-  nombre: string;
+  idPrograma: number;
+  nombrePrograma: string;
 }

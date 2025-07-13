@@ -9,7 +9,7 @@ interface ContactCardProps {
 
 export const ContactCard = ({ email, location, dateJoined, department }: ContactCardProps) => {
   return (
-    <div className="bg-white p-4 rounded-xl shadow-md space-y-3 border">
+    <div className="bg-white p-4 rounded-xl shadow-md space-y-3 border ml-[420px] w-[350px] ">
       <h3 className="font-semibold text-lg">Información de Contacto</h3>
       <div className="flex items-center space-x-2 text-sm">
         <EnvelopeIcon className="w-5 h-5 text-blue-600" />

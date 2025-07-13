@@ -4,7 +4,6 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  Input,
   Link,
   Navbar,
   NavbarBrand,
@@ -16,8 +15,15 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { routes } from "../../../routes/Routes";
-import logo from "../../../assets/images/logo.png";
+import logo from "../../../assets/images/montacarga.png";
 import { MenuItem } from "../atoms/MenuItem";
+
+import {
+  Globe,
+  Home,
+  User,
+  LogOut,
+} from "lucide-react";
 
 interface NavbarAppProps {
   leftContent?: React.ReactNode;
@@ -30,8 +36,6 @@ interface NavbarAppProps {
 }
 
 const NavbarApp = ({
-  leftContent,
-  centerContent,
   isAuthenticated,
   fullName,
   email,
@@ -64,41 +68,46 @@ const NavbarApp = ({
 
   const handleLanguageChange = (key: string) => {
     setSelectedLang(key);
-    // Aquí puedes agregar lógica para cambiar el idioma con i18n o guardar en localStorage
   };
 
   return (
-    <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="bg-gray-900 text-white">
+    <Navbar
+      isBordered
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+      className="bg-[#151B2C] text-white shadow-md"
+    >
+      {/* Menú móvil */}
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
       </NavbarContent>
 
-      <NavbarBrand className="gap-2 cursor-pointer" onClick={() => navigate(routes.home)}>
-        <img src={logo} alt="Logo" className="w-10 h-10 " />
-        <span className="font-semibold text-white hidden sm:block">{NAME_APP}</span>
+      {/* Logo alineado completamente a la izquierda */}
+      <NavbarBrand
+        className="gap-2 cursor-pointer pl-4"
+        onClick={() => navigate(routes.home)}
+      >
+        <img src={logo} alt="Logo" className="w-20 h-15 ml-[-220px]" />
+        <span className="font-semibold text-white hidden sm:block ">
+          {NAME_APP}
+        </span>
       </NavbarBrand>
 
-      <NavbarContent className="hidden sm:flex flex-1" justify="center">
-        <Input
-          classNames={{
-            base: "w-full max-w-md rounded-lg",
-            input: "text-white",
-            inputWrapper: "bg-[#a7a7a7] border border-[#334155] text-white",
-          }}
-          placeholder="Buscar..."
-          size="sm"
-          type="search"
-        />
-      </NavbarContent>
+      {/* Íconos alineados a la derecha con más espacio */}
+      <NavbarContent className="hidden sm:flex items-center gap-8 " justify="end">
 
-      <NavbarContent className="hidden sm:flex gap-4 items-center" justify="end">
-        <Link  className="text-white hover:text-gray-300 cursor-pointer" cursor-pointer onClick={() => navigate(routes.home)}>🏠 Inicio</Link>
+        <button
+          onClick={() => navigate(routes.home)}
+          className="flex items-center gap-2 text-white hover:text-[#3B82F6] transition-colors"
+        >
+          <Home size={18} /> <span>Inicio</span>
+        </button>
 
-        {/* Dropdown de Idioma */}
         <Dropdown>
           <DropdownTrigger>
-            <div className="flex items-center gap-1 text-white cursor-pointer hover:text-gray-300">
-              🌐 <span className="font-medium uppercase">{languageCodes[selectedLang]}</span>
+            <div className="flex items-center gap-2 text-white cursor-pointer hover:text-[#3B82F6] transition-colors">
+              <Globe size={18} />
+              <span className="font-medium uppercase">{languageCodes[selectedLang]}</span>
               <span className="hidden sm:inline">{languageOptions[selectedLang]}</span>
             </div>
           </DropdownTrigger>
@@ -119,18 +128,13 @@ const NavbarApp = ({
           </DropdownMenu>
         </Dropdown>
 
-        <div className="text-white cursor-pointer hover:text-gray-300 relative" onClick={() => navigate(routes.notifications)}>
-          🔔
-          <span className="absolute top-0 right-0 text-xs text-red-500">●</span>
-        </div>
-
         {isAuthenticated && (
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
               <Avatar
                 isBordered
                 as="button"
-                className="transition-transform w-5 h-5 ml-2"
+                className="transition-transform w-6 h-6 mr-[-240px]"
                 size="sm"
               />
             </DropdownTrigger>
@@ -139,9 +143,12 @@ const NavbarApp = ({
                 <p className="font-semibold">{fullName}</p>
                 <p className="text-sm text-gray-500">@{email?.split("@")[0]}</p>
               </DropdownItem>
-              <DropdownItem key="profilePage" onClick={() => navigate(routes.profile)}>Mi Perfil</DropdownItem>
-              <DropdownItem key="config">Configuración</DropdownItem>
-              <DropdownItem key="logout"  onPress={onLogOut}>
+              <DropdownItem key="profilePage" onClick={() => navigate(routes.profile)}>
+                <User size={16} className="inline-block mr-2" />
+                Mi Perfil
+              </DropdownItem>
+              <DropdownItem key="logout" onPress={onLogOut} className="text-danger">
+                <LogOut size={16} className="inline-block mr-2" />
                 Cerrar Sesión
               </DropdownItem>
             </DropdownMenu>

@@ -1,7 +1,7 @@
 import { api } from "../../lib/axios";
 
 export interface MunicipioPutData {
-  nombre_municipio: string;
+  nombreMunicipio: string;
 }
 
 export async function updateMunicipio(id: number, data: MunicipioPutData) {

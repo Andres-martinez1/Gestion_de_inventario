@@ -1,13 +1,16 @@
-export type GetUsuario = {
-  id_personas: number;
+// types/Usuarios/GetUsuario.ts
+import { GetRol } from "../Roles/GetRoles";
+import { GetArea } from "../Areas/GetArea";
+
+export interface GetUsuario {
+  idUsuario: number;
   identificacion: number;
   nombres: string;
   apellidos: string;
   correo: string;
-  area: string;
-  ficha: number;
-  rol: string;
-  fk_id_bodega: number;
-  fk_id_ficha: number;
-  fk_id_area: number;
+  password: string;
+
+  // Puede ser un número (solo ID) o un objeto completo
+  fkIdArea: number | GetArea | null;
+  fkIdRol: number | GetRol | null;
 }

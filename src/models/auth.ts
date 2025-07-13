@@ -1,16 +1,14 @@
-export class AuthLogin {
-    constructor(
-        public email: string,
-        public password: string,
-    ){}
+export interface AuthLogin {
+  email: string;
+  password: string;
 }
 
-
-export class AuthRegister {
-    constructor(
-        public name: string,
-        public lastName: string,
-        public email: string,
-        public password: string
-    ){}
+export interface LoginResponse {
+  access_token: string;
+  user: {
+    id: number;
+    nombre: string;
+    email: string;
+    rol: string;
+  };
 }

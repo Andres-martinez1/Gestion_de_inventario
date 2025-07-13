@@ -1,10 +1,10 @@
 import { api } from "../../lib/axios";
 
 export interface MunicipioPostData {
-  nombre_municipio: string;
+  nombreMunicipio: string;
 }
 
 export async function postMunicipio(data: MunicipioPostData) {
-  const response = await api.post("/municipios", data);
+  const response = await api.post("/municipio", data);
   return response.data;
 }

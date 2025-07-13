@@ -4,27 +4,31 @@ import LoginPage from "../pages/auth/LoginPage";
 import AuthLayout from "../layouts/AuthLayout";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminLayout from "../layouts/AdminLayout";
-import AdminPage from "../pages/admin/AdminPage";
-import AdminStatsPage from "../pages/admin/AdminStatsPage";
-import AdminReports from "../pages/admin/AdminReports";
+import AdminPage from "../pages/AdminPage";
+import AdminStatsPage from "../pages/AdminStatsPage";
+import AdminReports from "../pages/AdminReports";
 import RedirectIfAuthenticated from "./RedirectIfAuthenticated";
 import { useAuth } from "../hooks/Auth/use-auth";
 import { routes } from "./Routes";
-import AdminProfile from "../pages/admin/AdminProfile";
-import AdminProducts from "../pages/admin/AdminProducts";
-import AdminWhereHousePage from "../pages/admin/AdminWhereHousePage";
-import AdminUsersPage from "../pages/admin/AdminUsers";
-import AdminNotificationsPage from "../pages/admin/AdminNotifications";
-import AdminHelperPage from "../pages/admin/AdminHelper";
-import AdminWhereHouseDetailPage from "../pages/admin/AdminWhereHouseDetailPage";
-import AdminGastronomyPage from "../pages/admin/AdminGastronomyPage";
-import AdminAgroPage from "../pages/admin/AdminAgroPage";
-import AdminCoffePage from "../pages/admin/AdminCoffePage";
-import AdminReportsS from "../pages/admin/AdminReportsS";
-import AdminReportsI from "../pages/admin/AdminReportsI";
-import AdminReportsT from "../pages/admin/AdminReportsT";
-import AdminReportsV from "../pages/admin/AdminReportsV";
-import AdminDetalleEntrada from "../pages/admin/AdminDetalleEntrada";
+import AdminProfile from "../pages/AdminProfile";
+import AdminProducts from "../pages/AdminProducts";
+import AdminWhereHousePage from "../pages/AdminWhereHousePage";
+import AdminHelperPage from "../pages/AdminHelper";
+import AdminWhereHouseDetailPage from "../pages/AdminWhereHouseDetailPage";
+import AdminGastronomyPage from "../pages/AdminGastronomyPage";
+import AdminAgroPage from "../pages/AdminAgroPage";
+import AdminCoffePage from "../pages/AdminCoffePage";
+import AdminReportsS from "../pages/AdminReportsS";
+import AdminReportsI from "../pages/AdminReportsI";
+import AdminReportsT from "../pages/AdminReportsT";
+import AdminStatsPageS from "../pages/AdminStatsPageS";
+import AdminStatsPageT from "../pages/AdminStatsPageT";
+import AdminStatsPageI from "../pages/AdminStatsPageI";
+// import AdminMovimientos from "../pages/AdminMoviminetos";
+import AdminUser from "../pages/AdminUser";
+import AdminPermisos from "../pages/AdminPermisos";
+import AdminTables from "../pages/AdminTables";
+
 
 const AppRoutes = () => {
   const { isAuthenticated } = useAuth();
@@ -60,6 +64,33 @@ const AppRoutes = () => {
           }
         />
         <Route
+          path={routes.users}
+          element={
+            <ProtectedRoute
+              component={AdminUser}
+              isAuthenticated={isAuthenticated}
+            />
+          }
+        />
+          <Route
+          path={routes.tables}
+          element={
+            <ProtectedRoute
+              component={AdminTables}
+              isAuthenticated={isAuthenticated}
+            />
+          }
+        />
+                <Route
+          path={routes.permisos}
+          element={
+            <ProtectedRoute
+              component={AdminPermisos}
+              isAuthenticated={isAuthenticated}
+            />
+          }
+        />
+        <Route
           path={routes.stats}
           element={
             <ProtectedRoute
@@ -81,7 +112,7 @@ const AppRoutes = () => {
           path={routes.StacticS}
           element={
             <ProtectedRoute
-              component={AdminStatsPage}
+              component={AdminStatsPageS}
               isAuthenticated={isAuthenticated}
             />
           }
@@ -90,7 +121,7 @@ const AppRoutes = () => {
           path={routes.StacticT}
           element={
             <ProtectedRoute
-              component={AdminStatsPage}
+              component={AdminStatsPageT}
               isAuthenticated={isAuthenticated}
             />
           }
@@ -99,25 +130,7 @@ const AppRoutes = () => {
           path={routes.StacticI}
           element={
             <ProtectedRoute
-              component={AdminStatsPage}
-              isAuthenticated={isAuthenticated}
-            />
-          }
-        />
-          <Route
-          path={routes.StacticV}
-          element={
-            <ProtectedRoute
-              component={AdminStatsPage}
-              isAuthenticated={isAuthenticated}
-            />
-          }
-        />
-        <Route
-          path={routes.detalles}
-          element={
-            <ProtectedRoute
-              component={AdminDetalleEntrada}
+              component={AdminStatsPageI}
               isAuthenticated={isAuthenticated}
             />
           }
@@ -159,15 +172,6 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path={routes.vencimientos}
-          element={
-            <ProtectedRoute
-              component={AdminReportsV}
-              isAuthenticated={isAuthenticated}
-            />
-          }
-        />
-        <Route
           path={routes.warehouses}
           element={
             <ProtectedRoute
@@ -177,7 +181,7 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path={routes.warehousesDetail}
+          path={routes.warehouses}
           element={
             <ProtectedRoute
               component={AdminWhereHouseDetailPage}
@@ -213,24 +217,6 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path={routes.users}
-          element={
-            <ProtectedRoute
-              component={AdminUsersPage}
-              isAuthenticated={isAuthenticated}
-            />
-          }
-        />
-        <Route
-          path={routes.notifications}
-          element={
-            <ProtectedRoute
-              component={AdminNotificationsPage}
-              isAuthenticated={isAuthenticated}
-            />
-          }
-        />
-        <Route
           path={routes.help}
           element={
             <ProtectedRoute
@@ -239,6 +225,15 @@ const AppRoutes = () => {
             />
           }
         />
+        {/* <Route
+          path={routes.movimientos}
+          element={
+            <ProtectedRoute
+              component={AdminMovimientos}
+              isAuthenticated={isAuthenticated}
+            />
+          }
+        /> */}
         <Route
           path={routes.profile}
           element={

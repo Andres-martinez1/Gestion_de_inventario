@@ -4,7 +4,7 @@ import { GetTrazabilidad } from "../../types/Trazabilidad/GetTrazabilidad";
 
 export function useTrazabilidad() {
   return useQuery<GetTrazabilidad[]>({
-    queryKey: ["trazabilidades"],
+    queryKey: ["trazabilidad"],
     queryFn: getTrazabilidad,
   });
 }

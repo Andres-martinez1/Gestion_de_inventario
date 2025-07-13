@@ -1,10 +1,30 @@
 export type GetTrazabilidad = {
-  id_traza: number;
-  fk_id_elemento: number;
-  tipo_movimiento: string;
-  fecha: string;
-  bodega_origen: string;
-  bodega_destino: string;
-  responsable: string;
-  estado_actual: string;
-}
+  idTrazabilidad: number;
+  tipoMovimiento: string;
+  fecha: Date;
+  estadoActual: string;
+  bodegaOrigen: {
+    encargado: string;
+    idBodega: number;
+    nombreBodega: string;
+  };
+  bodegaDestino: {
+    encargado: string;
+    idBodega: number;
+    nombreBodega: string;
+  };
+  fkIdElemento: {
+    stock: any;
+    clasificacion: any;
+    fichaTecnica: any;
+    uso: any;
+    estado: any;
+    serial: any;
+    tipo: any;
+    fechaSalida: any;
+    fechaIngreso: any;
+    fechaCaducidad: any;
+    idElemento: number;
+    nombreElemento: string;
+  };
+};

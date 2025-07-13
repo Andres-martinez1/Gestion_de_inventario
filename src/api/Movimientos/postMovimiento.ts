@@ -1,13 +1,13 @@
 import { api } from "../../lib/axios";
 
 export interface MovimientoPostData {
-  elemento: string;
-  fecha: string;
+  fecha: Date;
   responsable: string;
   pedir: string;
   suministrar: string;
   devolver: string;
-  fk_id_usuario: number;
+  fkIdElemento: number;
+  fkIdUsuario: number;
 }
 
 export async function postMovimiento(data: MovimientoPostData) {
